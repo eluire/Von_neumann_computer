@@ -201,13 +201,14 @@ void subtract(string operand, int mainStack[], int &accumulator){
 void divide(string operand, int mainStack[], int &accumulator ,int &MQ){
 
 	int address = bd(operand);
-	int value_MQ = accumulator / mainStack[address];
-	//float value_AC = accumulator % mainStack[address];
+	int value = accumulator / mainStack[address];
+	int resto = accumulator % mainStack[address];
 	//accumulator = value_AC;
-	MQ = value_MQ;
-	cout << "divide o conteudo do acumulador com o conteudo da memoria no do endereco " << address <<" e grava o quociente no registrador MQ [" << MQ <<"] e o resto da divisão no acumulador ["<< accumulator<<"]"<<"\n";
+	MQ = resto;
+	accumulator = value;
+	cout << "divide o conteudo do acumulador com o conteudo da memoria no do endereco " << address <<" e grava o quociente no acumulador [" << accumulator <<"] e o resto da divisão no registrador MQ ["<< MQ <<"]"<<"\n";
 }
-
+//fazer função pra store mq->ac
 void multiply(string operand, int mainStack[], int &accumulator , int &MQ){
 	int address = bd(operand);
 	int value = MQ * mainStack[address];
@@ -217,9 +218,9 @@ void multiply(string operand, int mainStack[], int &accumulator , int &MQ){
 
 
 }
-void loadMQ(int &accumulator)
+void loadMQ(int &MQ)
 {
-	accumulator = MQ;
+	MQ = accumulator;
 	cout << "Transfere o conteudo do acumulador "<<accumulator <<" para o registrador MQ ["<<MQ<<"]"<<'\n';
 
 }

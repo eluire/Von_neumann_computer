@@ -38,7 +38,7 @@ int main()
 
     prompt();
     /**********
-    TESTAR OS BAGULHO
+    TESTE DAS OPERAÇÕES
     **********/
     mainStack[600] = 37;  //1001011000
     mainStack[601] = 80; //1001011001
